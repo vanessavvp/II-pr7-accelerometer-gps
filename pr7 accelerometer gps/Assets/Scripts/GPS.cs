@@ -9,6 +9,7 @@ public class GPS : MonoBehaviour
     public static GPS Instance { set; get; }
     public float Latitude;
     public float Longitude;
+    public float Altitude;
     Text CoordinatesInfo;
 
     private void Start()
@@ -71,7 +72,8 @@ public class GPS : MonoBehaviour
             {
                 Latitude = Input.location.lastData.latitude;
                 Longitude = Input.location.lastData.longitude;
-                CoordinatesInfo.text = "Latitude: " + Latitude.ToString() + "\nLongitude: " + Longitude.ToString();
+                Altitude = Input.location.lastData.altitude;
+                CoordinatesInfo.text = "Latitude: " + Latitude.ToString() + "\nLongitude: " + Longitude.ToString() + "\nAltitude: " + Altitude.ToString();
             }
         }
         yield break;
